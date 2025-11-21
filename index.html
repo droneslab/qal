@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="QAL: A Loss for Recall–Precision Balance in 3D Reconstruction">
+  <meta property="og:title" content="QAL: A Loss for Recall–Precision Balance in 3D Reconstruction"/>
+  <meta property="og:description" content="Quality-Aware Loss (QAL) for balancing recall and precision in 3D reconstruction and point cloud completion."/>
+  <meta property="og:url" content="https://droneslab.github.io/E3D"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <meta name="twitter:title" content="QAL: A Loss for Recall–Precision Balance in 3D Reconstruction">
+  <meta name="twitter:description" content="QAL: Quality-Aware Loss for recall–precision balance in 3D reconstruction.">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="3D reconstruction, point cloud completion, quality-aware loss, QAL, Chamfer Distance, Earth Mover's Distance, recall, precision">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>QAL: A Loss for Recall–Precision Balance in 3D Reconstruction</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title"><span style="color: rgb(0, 45, 248)">QAL</span>: A Loss for Recall–Precision Balance in 3D Reconstruction</h1>
+            <h2 class="subtitle is-4">Quality-Aware Loss for robust 3D vision and robotics</h2>
+
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="https://pranayspeed.com" target="_blank">Pranay Meshram</a>,</span>
+                <span class="author-block">
+                  <a href="https://yash.turkar.in/" target="_blank">Yash Turkar</a>,</span>
+                <span class="author-block">
+                  <a target="_blank">Kartikeya Singh</a>,</span>
+                <span class="author-block">
+                  <a target="_blank">Praveen Raj Masilamani</a>,</span>
+                <span class="author-block">
+                  <a target="_blank">Charuvahan Adhivarahan</a>,</span>
+                <span class="author-block">
+                  <a href="https://cse.buffalo.edu/faculty/kdantu/" target="_blank">Karthik Dantu</a></span>
+                  </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block">Center for Embodied Autonomy and Robotics (CEAR) <br> University at Buffalo</span>
+                  </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <a href="https://www.buffalo.edu/">
+                      <img style="width:30%; padding-right: 15px;" src="static/images/ub_logo.png">
+                    </a>
+                    <!-- <a href="https://eccv2024.ecva.net/">
+                      <img style="width:30%; height: 30%; padding-right: 15px;" src="static/images/eccv_logo.png">
+                    </a> -->
+                    <a href="http://drones.cse.buffalo.edu/">
+                      <img style="width:30%; height:auto; padding-bottom: 25px;" src="static/images/drones_logo.png">
+                    </a>
+                  </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- Arxiv PDF link -->
+                      <span class="link-block">
+                        <a href="static/pdfs/qal_wacv2026.pdf" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span>
+
+                    <!-- Supplementary PDF link -->
+                    <!-- <span class="link-block">
+                      <a href="static/pdfs/qal_supplementary.pdf" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Supplementary</span>
+                    </a>
+                  </span> -->
+
+                  <!-- Github link (update when code is public) -->
+                  <span class="link-block">
+                    <a href="#"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code (Coming Soon)</span>
+                  </a>
+                </span>
+
+                <!-- ArXiv abstract Link -->
+                <!-- <span class="link-block">
+                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span> -->
+
+              <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fa fa-database"></i>
+                  </span>
+                  <span>Datasets (Coming Soon)</span>
+                  </a>
+
+              <div class="content has-text-justified">
+                <img style="width:100%;" src="static/images/qal_chair_intro.pdf">
+                <p>
+                  Point cloud completion on MVP with ECG: models trained with traditional Chamfer and Earth Mover's Distance miss thin structures and introduce spurious artifacts, whereas QAL increases coverage and preserves fine details while controlling over-prediction.
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- <section class="section hero"></section>
+  <div class="container is-max-desktop">
+    <iframe height="540" width="960" src="https://www.youtube.com/embed/EOGI1pU1G40" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+</section> -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Volumetric learning underpins many 3D vision tasks such as completion, reconstruction, and mesh generation, yet training objectives still rely on Chamfer Distance (CD) or Earth Mover’s Distance (EMD), which fail to balance recall and precision.
+            We propose Quality-Aware Loss (QAL), a drop-in replacement for CD/EMD that combines a coverage-weighted nearest-neighbor term with an uncovered–ground-truth attraction term, explicitly decoupling recall and precision into tunable components.
+          </p>
+          <p>
+            Across diverse pipelines, QAL achieves consistent coverage gains, improving by an average of +4.3 points over CD and +2.8 points over the best existing alternatives.
+            Though modest in percentage, these gains reliably recover thin structures and under-represented regions that CD/EMD overlook.
+            Extensive ablations confirm stable performance across hyperparameters and output resolutions, while full retraining on PCN and ShapeNet demonstrates generalization across datasets and backbones.
+            Moreover, QAL-trained completions yield higher grasp scores under GraspNet evaluation, showing that improved coverage translates directly into more reliable robotic manipulation.
+          </p>
+          <p>
+            QAL thus offers a principled, interpretable, and practical objective for robust 3D vision and safety-critical robotics pipelines.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+<!-- Method -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3">Quality-Aware Loss</h2>
+        <div class="content has-text-justified">
+          <p>
+            QAL is designed as a drop-in replacement for Chamfer Distance and Earth Mover's Distance in volumetric learning.
+            Let the predicted point cloud be A and the ground-truth point cloud be B.
+            QAL reweights bidirectional nearest-neighbor distances with a soft epsilon-margin, emphasizing errors beyond a tolerance, and adds an uncovered–ground-truth attraction term that pulls predictions toward regions that are currently missing coverage.
+          </p>
+          <p>
+            The coverage-weighted term down-weights already-precise matches and focuses optimization on under-represented regions, aligning training with thresholded metrics such as Coverage and F1.
+            The uncovered–ground-truth attraction term explicitly drives recall by encouraging the network to fill holes while suppressing spurious clusters.
+            Together, these components provide an interpretable handle for trading off recall and precision depending on application needs.
+          </p>
+          <div class="content has-text-centered">
+            <img style="width:100%;" src="static/images/qal_eqn_3d.pdf">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Method -->
+
+<!-- <style>
+  .result-caption {
+    font-size: 20px;
+  }
+</style> -->
+
+<!-- Luna-1 -->
+<!-- <section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column"><h2 class="title is-3">The Luna-1 Dataset</h2>
+        <div class="content has-text-justified">
+          <p>
+            To facilitate future research in the challenging space landmark recognition problem, we introduce the <strong><em>Luna-1</em></strong>
+            dataset, consisting of 5,067 Moon crater landmarks and 2,161 emulated orbital navigation frames from real-world 
+            NASA data.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+            <img style="width:49%; padding-right: 15px;" src="static/images/craters.png"/>
+            <img style="width:49%; padding-right: 15px; padding-bottom: 2px;" src="static/images/nav_frames.png"/> 
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+<!-- End Luna-1 -->
+
+<!-- Results -->
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column"><h2 class="title is-3">Results</h2>
+        <div class="content has-text-justified">
+          
+          <img style="width:100%;" src="static/images/qal_main_qualitative.pdf">
+          <h6>
+            Qualitative results for point cloud completion on MVP using TopNet, PCN, and ECG backbones trained with CD, HCD, InfoCD, and QAL.
+            The highlighted QAL column recovers thin structures and fine details that other losses miss, while maintaining controlled over-prediction.
+          </h6>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Results -->
+
+<!-- Additional components from the template (carousels, videos, posters) can be enabled as needed. -->
+
+
+<!-- <section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column"><h2 class="title is-3">Training Evolution</h2>
+        <div class="content has-text-centered">
+            <video poster="" id="video1" autoplay controls muted loop height="100%" style="padding-right: 15px;">
+              <source src="static/videos/mars.mp4" type="video/mp4">
+            </video>
+            <video poster="" id="video2" autoplay controls muted loop height="100%" style="padding-right: 15px;">
+              <source src="static/videos/moon.mp4" type="video/mp4">
+            </video>
+            <video poster="" id="video2" autoplay controls muted loop height="100%">
+              <source src="static/videos/earth.mp4" type="video/mp4">
+            </video>
+            <h6>
+              Attention alignment evolution during training for MARs (bottom row) against rotational equivarant and spatial attention layers (RIC CA, top row)
+              for Mars Crater (left), Moon Crater (middle), and Earth Stadium (right) features.
+            </h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+
+
+<!-- <section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Another Carousel</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <source src="static/videos/mars.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop height="100%">
+            <source src="static/videos/moon.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">\
+            <source src="static/videos/earth.mp4" type="video/mp4">
+          </video>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+
+<!-- Video carousel -->
+<!-- <div id="wrapper"> 
+  <video id="home1" width="400" height="300" poster="" controls="controls" preload="none"> 
+      <source type="video/mp4" src="static/videos/mars.mp4" /> 
+  </video>
+  <video id="home2" width="400" height="300" poster="" controls="controls" preload="none"> 
+      <source type="video/mp4" src="static/videos/moon.mp4" /> 
+  </video>
+  <div class="clear"></div> 
+</div> -->
+<!-- End video carousel -->
+
+
+
+<!-- Poster -->
+<!-- <section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container has-text-centered"><h2 class="title">Poster</h2>
+      <iframe  src="static/pdfs/eccv_poster_final.pdf" width="100%" height="600"></iframe>
+
+    </div>
+  </div>
+</section> -->
+<!-- End Poster -->
+
+
+
+
+
+
+
+<!-- <section class="hero is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title">Poster</h2>
+
+      <iframe  src="static/pdfs/eccv_poster_final.pdf" width="100%" height="600">
+          </iframe>
+        
+      </div>
+    </div>
+  </section> -->
+
+  <!-- <embed src="static/pdfs/eccv_poster_final.pdf" style="height:100%;" type="application/pdf"> -->
+
+
+
+<!-- Image carousel -->
+<!-- <section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+       <div class="item"> -->
+        <!-- Your image here -->
+        <!-- <img src="static/images/carousel1.jpg" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          First image description.
+        </h2>
+      </div>
+      <div class="item"> -->
+        <!-- Your image here -->
+        <!-- <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          Second image description.
+        </h2>
+      </div>
+      <div class="item"> -->
+        <!-- Your image here -->
+        <!-- <img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+         Third image description.
+       </h2>
+     </div>
+     <div class="item"> -->
+      <!-- Your image here -->
+      <!-- <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
+      <h2 class="subtitle has-text-centered">
+        Fourth image description.
+      </h2>
+    </div>
+  </div>
+</div>
+</div>
+</section> -->
+<!-- End image carousel -->
+
+
+
+<!-- Video carousel -->
+<!-- <section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Another Carousel</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%"> -->
+            <!-- Your video file here -->
+            <!-- <source src="static/videos/carousel1.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop height="100%"> -->
+            <!-- Your video file here -->
+            <!-- <source src="static/videos/carousel2.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">\ -->
+            <!-- Your video file here -->
+            <!-- <source src="static/videos/carousel3.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+<!-- End video carousel -->
+
+
+
+
+
+<!-- Paper poster -->
+<!-- <section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title">Poster</h2>
+
+      <iframe  src="static/pdfs/eccv_poster_final.pdf" width="100%" height="600">
+          </iframe>
+        
+      </div>
+    </div>
+  </section> -->
+<!--End paper poster -->
+
+<!--BibTex citation -->
+<section class="section hero"></section>
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column"><h4 class="title is-3">BibTeX</h4>
+        <div class="content has-text-justified">
+          <pre><code>@inproceedings{meshram2026qal,
+  title={QAL: A Loss for Recall--Precision Balance in 3D Reconstruction},
+  author={Meshram, Pranay and Turkar, Yash and Singh, Kartikeya and Masilamani, Praveen Raj and Adhivarahan, Charuvahan and Dantu, Karthik},
+  booktitle={WACV},
+  year={2026}
+}
+          </code></pre>
+      </div>
+    </div>
+  </div>
+</section>
+<!--End BibTex citation -->
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+<!-- End of Statcounter Code -->
+
+  </body>
+  </html>
