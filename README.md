@@ -13,10 +13,10 @@ QAL recovers thin structures while controlling spurious points.
 **Qualitative Comparisons.**  
 ![QAL qualitative results](images/qal_main_qualitative.png)  
 Side-by-side comparisons highlighting recall–precision balance versus CD/EMD.
-
+<!-- 
 **Training Dynamics.**  
 ![Training metrics with QAL](images/qal_training_plot.jpg)  
-Validation curves showing improved coverage metrics over traditional losses.
+Validation curves showing improved coverage metrics over traditional losses. -->
 
 ## Status
 
