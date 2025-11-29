@@ -18,6 +18,11 @@ Side-by-side comparisons highlighting recall–precision balance versus CD/EMD.
 ![Training metrics with QAL](images/qal_training_plot.jpg)  
 Validation curves showing improved coverage metrics over traditional losses. -->
 
+## How QAL Works
+
+![Illustration of QAL components](images/qal_illustration.png)  
+QAL combines a coverage-weighted nearest-neighbor term with a ground-truth attraction loss, enabling explicit recall–precision control compared with Chamfer/EMD.
+
 ## Status
 
 🚧 **Code release in progress** – Expected: [April 2026]
